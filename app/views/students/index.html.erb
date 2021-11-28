@@ -1,0 +1,17 @@
+<h3>Student一覧</h3>
+<%= link_to "新規投稿へ", new_student_path %>
+<div class="students-container">
+  <% @students.each do |t| %>
+    <div class="student">
+      <%= t.user.email %>
+      <%= t.name %>
+      <%= t.profile %>
+      <%= t.mentor %>
+      <%= t.grade %>
+      <%= t.created_at %>
+      <%= link_to "詳細へ", student_path(t.id) %>
+      <%= link_to "編集する", edit_student_path(t.id) %>
+      <%= button_to "削除する", student_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+</div>
